@@ -14,7 +14,7 @@
         "deploy": "tsc && npm run publish-npm",
         "publish-npm": "npm publish --registry='https://registry.npmjs.org/' --access public",
         "lint": "tsc --noEmit && eslint '*/**/*.ts' --fix",
-        "test": "mocha --require ts-node/register tests/*.ts",
+        "test": "mocha --require ts-node/register -r dotenv/config tests/*.ts",
         "coverage": "nyc npm run test"
     },
     "files": [
@@ -45,6 +45,7 @@
         "@typescript-eslint/eslint-plugin": "^5.60.1",
         "@typescript-eslint/parser": "^5.60.1",
         "chai": "^4.3.7",
+        "dotenv": "^16.3.1",
         "eslint": "^8.43.0",
         "eslint-config-prettier": "^8.8.0",
         "eslint-plugin-import": "^2.27.5",

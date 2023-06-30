@@ -9,16 +9,24 @@
 import "mocha";
 import * as chai from "chai";
 import { Odoo, IServerVersion } from "../src";
+import * as process from "process";
+import { IOdooConfig } from "./mocha.env";
+
 const expect = chai.expect;
 
-const odooServer = "odoo.inv.dardeus.io";
-const db = "test";
-const username = "admin@test.example.com";
-const accessKey = "4ac89e51a5832ae796b0742ba1f388524224f383";
-
 describe("Odoo XMLRPC Protocol", () => {
+  let config: IOdooConfig = null;
+  before(() => {
+    config = {
+      host: process.env.ODOO_HOST,
+      db: process.env.ODOO_DB,
+      username: process.env.ODOO_USERNAME,
+      apikey: process.env.ODOO_PASSWORD
+    };
+  });
+
   it("Check Odoo Version 14.0", (done) => {
-    const odooCtrl = new Odoo(odooServer);
+    const odooCtrl = new Odoo(config.host);
     odooCtrl
       .version()
       .then((value: IServerVersion) => {
@@ -30,9 +38,9 @@ describe("Odoo XMLRPC Protocol", () => {
   }).timeout(20000);
 
   it("Autenticate user account", (done) => {
-    const odooCtrl = new Odoo(odooServer);
+    const odooCtrl = new Odoo(config.host);
     odooCtrl
-      .authenticate(db, username, accessKey)
+      .authenticate(config.db, config.username, config.apikey)
       .then((value: any) => {
         expect(value).to.be.a("number");
         done();
