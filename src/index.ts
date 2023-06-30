@@ -10,12 +10,13 @@
 /* Export api controllers*/
 export { Odoo } from "./controllers/odoo";
 export { OdooCRUD } from "./controllers/odoo.crud";
-export { MODEL_TYPE, IServerVersion, IContact, ILead, IEmployee } from "./models/odoo.types";
+export { MODEL_TYPE, IServerVersion, IContact, ILead, IEmployee, ICategory } from "./models/odoo.types";
 
 /* Export api controller for Odoo models */
 export { Contacts } from "./controllers/contacts.odoo";
 export { Leads } from "./controllers/leads.odoo";
 export { Employees } from "./controllers/employees.odoo";
+export { Categories } from "./controllers/categories.odoo";
 
 /* Export models */
 export { ERRORS } from "./constants/errors.enum";
