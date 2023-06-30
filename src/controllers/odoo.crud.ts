@@ -43,14 +43,9 @@ export class OdooCRUD<T> {
     });
   }
 
-  public searchRead(query: any[], opts: IPagination = {limit: 10}): Promise<T[]> {
+  public searchRead(query: any[], opts: IPagination = { limit: 10 }): Promise<T[]> {
     return new Promise<T[]>((resolve, reject) => {
-      const params: any[] = [
-        this._model,
-        "search_read",
-        [query],
-        { ...opts, fields: this._keys }
-      ];
+      const params: any[] = [this._model, "search_read", [query], { ...opts, fields: this._keys }];
       this._odoo
         .callRPC(params)
         .then((value: any) => {

@@ -10,7 +10,14 @@
 /* Export api controllers*/
 export { Odoo } from "./controllers/odoo";
 export { OdooCRUD } from "./controllers/odoo.crud";
-export { MODEL_TYPE, IServerVersion, IContact, ILead, IEmployee, ICategory } from "./models/odoo.types";
+export {
+  MODEL_TYPE,
+  IServerVersion,
+  IContact,
+  ILead,
+  IEmployee,
+  ICategory
+} from "./models/odoo.types";
 
 /* Export api controller for Odoo models */
 export { Contacts } from "./controllers/contacts.odoo";

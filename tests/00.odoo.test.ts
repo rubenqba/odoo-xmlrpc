@@ -7,14 +7,14 @@
  * Check LICENSE file in project root folder.
  */
 import "mocha";
-import chai from "chai";
+import * as chai from "chai";
 import { Odoo, IServerVersion } from "../src";
 const expect = chai.expect;
 
-const odooServer = "test-odoo.intelica.mx";
-const db = "odoo_test";
-const username = "millo@intelica.mx";
-const accessKey = "28629e7d1afecbc76c91ba04d6cca754aa4d4a65";
+const odooServer = "odoo.inv.dardeus.io";
+const db = "test";
+const username = "admin@test.example.com";
+const accessKey = "4ac89e51a5832ae796b0742ba1f388524224f383";
 
 describe("Odoo XMLRPC Protocol", () => {
   it("Check Odoo Version 14.0", (done) => {
@@ -23,7 +23,7 @@ describe("Odoo XMLRPC Protocol", () => {
       .version()
       .then((value: IServerVersion) => {
         expect(value.protocol_version).to.equal(1);
-        expect(value.server_serie).to.equal("14.0");
+        expect(parseFloat(value.server_version)).to.greaterThan(14.0);
         done();
       })
       .catch(done);

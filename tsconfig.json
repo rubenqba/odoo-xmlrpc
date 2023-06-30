@@ -17,7 +17,8 @@
       "ES2018",
       "DOM"
     ],
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "typeRoots": ["node_modules/@types", "src/types"]
   },
   "include": [
     "src/**/*.ts",
@@ -36,4 +37,7 @@
     "**/*.spec.ts",
     "tests/*.ts"
   ],
+  "ts-node": {
+    "files": true
+  }
 }

@@ -60,7 +60,7 @@ export class Odoo {
           return reject({ boError: ERRORS.INVALID_CREDENTIALS });
         }
         this._uid = value;
-        resolve(value);
+        return resolve(value);
       });
     });
   }
@@ -84,7 +84,7 @@ export class Odoo {
       case MODEL_TYPE.EMPLOYEES:
         return new Employees(this);
       case MODEL_TYPE.CATEGORIES:
-          return new Categories(this);
+        return new Categories(this);
     }
     throw new Error("Invalid model type");
   }

@@ -21,18 +21,6 @@ export interface IServerVersion {
   protocol_version: number;
 }
 
-export interface IContext {
-  lang: string;
-}
-
-export interface IPagination {
-  fields?: string[]
-  offset?: number;
-  limit?: number;
-  order?: string;
-  context?: IContext
-}
-
 export interface IContact {
   name?: string;
   phone?: string;
