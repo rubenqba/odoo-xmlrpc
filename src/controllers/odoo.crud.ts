@@ -19,9 +19,9 @@ export class OdooCRUD<T> {
     this._keys = keys;
   }
 
-  public count(): Promise<number> {
+  public count(query: any[] = []): Promise<number> {
     return new Promise<number>((resolve, reject) => {
-      const params: any[] = [this._model, "search_count", [[]]];
+      const params: any[] = [this._model, "search_count", [query]];
       this._odoo
         .callRPC(params)
         .then((value: any) => {
